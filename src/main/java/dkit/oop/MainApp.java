@@ -1,10 +1,10 @@
 package dkit.oop;
 
-/*  SpellChecker using    Feb 2022
+/*  SpellChecker     Nov 2023
  *
  * Demonstrates : HashSet and Set - (fast access and no duplicates)
  *
- * This App reads a text file (Alice in Wonderland script) and a dictionary of words into
+ * This MainApp reads a text file (Alice in Wonderland script) and a dictionary of words into
  * two separate HashSets.  It then checks to see if the words from the text document
  * exist in the dictionary.  If a word is not in the dictionary, it is printed.
  *
@@ -23,22 +23,21 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 
-public class App {
+public class MainApp {
 
     public static void main(String[] args) throws FileNotFoundException {
-        App app = new App();
+        MainApp app = new MainApp();
         app.start();
     }
 
     public void start() throws FileNotFoundException {
-        // Read the dictionary and the document
 
-        // Load Set of dictionary words
+        // Load Set of dictionary words from the dictionary file
         Set<String> dictionaryWords = loadSetFromFile("dictionary.txt");  // the dictionary of words
 
-        // Load Set of document words
-        // A Set us used here so that we we only load one of each word from the book,
-        // and thus avoid looking up the same word twice in the dictionaly.
+        // Load words from the story book into a Set.
+        // A Set is used here so that we only load one of each word from the book,
+        // and thus avoid looking up the same word twice in the dictionary.
         // Remember that a Set does not accept duplicate values, so attempting
         // to add a word that is already there has no effect.
 
@@ -49,14 +48,14 @@ public class App {
 
         System.out.println("Words from the Book that are NOT in the dictionary:");
         for (String word : documentWords) {
-            if (!dictionaryWords.contains(word)) {  // search for word in dictionary
+            if (!dictionaryWords.contains(word)) {   // check if dictionary contains the current word
                 System.out.print(word + ", ");
             }
         }
         System.out.println("\nProgram finished.");
 
         // the .contains() method above will be very efficient/fast in looking up
-        // a word from the dictionary because it is a HashSet and therefore
+        // a key word from the dictionary because it is a HashSet and therefore
         // uses a Hash Table approach. O(1).
     }
 
@@ -88,7 +87,7 @@ public class App {
     // for the type of object stored.  Above, words are stored as String types
     // so hashCode() and equals() methods must be implemented in the String
     // class - which they are!
-    // If we use our own class (e.g. Student) as th evalue type for HashSet, then
+    // If we use our own class (e.g. Student) as the Key type for HashSet, then
     // that class MUST implement the hashCode() and equals() methods appropriately.
     // Therefore, we must write those two methods.
     // (otherwise the HashSet won't operate correctly).
