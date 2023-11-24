@@ -4,13 +4,15 @@ package dkit.oop;
  *
  * Demonstrates : HashSet and Set - (fast access and no duplicates)
  *
- * This MainApp reads a text file (Alice in Wonderland script) and a dictionary of words into
- * two separate HashSets.  It then checks to see if the words from the text document
+ * This MainApp reads a text file containing all the words from the textbook "Alice in Wonderland"
+ * into one HashSet, and reads a list of dictionary of words into aa second HashSet.
+ * It then checks to see if the words from the textbook document
  * exist in the dictionary.  If a word is not in the dictionary, it is printed.
  *
- * We use a Set data structure to store the dictionary words, and the document words.
+ * We use a HashSet data structure to store the dictionary words, and the document words.
  * A Set does not allow duplicates.  If we attempt to add a duplicate word to Set,
- * that duplicate word is simply ignored.
+ * that duplicate word is simply ignored.  This is useful as it filters out any repeated
+ * words from the textbook. (There is no point in checking two words if they are the same)
  *
  * Specifically, we use a HashSet - which is a Set that uses a Hash function for
  * storing and retrieving elements. This is the best choice for speed (performance).
