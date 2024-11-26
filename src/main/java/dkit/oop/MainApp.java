@@ -1,15 +1,17 @@
 package dkit.oop;
 
-/*  SpellChecker     Nov 2023
+/*  SpellChecker     Nov 2024
  *
  * Demonstrates : HashSet and Set - (fast access and no duplicates)
  *
- * This MainApp reads a text file containing all the words from the textbook "Alice in Wonderland"
- * into one HashSet, and reads a list of dictionary of words into aa second HashSet.
+ * This MainApp reads a text file containing all the words from the textbook
+ * "Alice in Wonderland"  into one HashSet, and reads a list of dictionary
+ * words into a second HashSet.
  * It then checks to see if the words from the textbook document
  * exist in the dictionary.  If a word is not in the dictionary, it is printed.
  *
- * We use a HashSet data structure to store the dictionary words, and the document words.
+ * We use a HashSet data structure to store the dictionary words, and another
+ * HashSet to store the document words.
  * A Set does not allow duplicates.  If we attempt to add a duplicate word to Set,
  * that duplicate word is simply ignored.  This is useful as it filters out any repeated
  * words from the textbook. (There is no point in checking two words if they are the same)
@@ -41,12 +43,13 @@ public class MainApp {
         // A Set is used here so that we only load one of each word from the book,
         // and thus avoid looking up the same word twice in the dictionary.
         // Remember that a Set does not accept duplicate values, so attempting
-        // to add a word that is already there has no effect.
+        // to add a word that is already there has no effect (which is fine, as we
+        // only need each word once).
 
         Set<String> documentWords = loadSetFromFile("alice_in_wonderland.txt");  // document words file
 
         // Print all words that are in the document but not the dictionary
-        System.out.println("Spell Checking of Alice in Wonderland text, using a dictionary\n)");
+        System.out.println("\nSpell Checking of Alice in Wonderland text, using a dictionary\n");
 
         System.out.println("Words from the Book that are NOT in the dictionary:");
         for (String word : documentWords) {
@@ -57,8 +60,8 @@ public class MainApp {
         System.out.println("\nProgram finished.");
 
         // the .contains() method above will be very efficient/fast in looking up
-        // a key word from the dictionary because it is a HashSet and therefore
-        // uses a Hash Table approach. O(1).
+        // each key word from the dictionary because it is a HashSet and therefore
+        // uses a Hash Table approach. O(1) access times.
     }
 
     /**
@@ -91,6 +94,6 @@ public class MainApp {
     // class - which they are!
     // If we use our own class (e.g. Student) as the Key type for HashSet, then
     // that class MUST implement the hashCode() and equals() methods appropriately.
-    // Therefore, we must write those two methods.
+    // Therefore, we must write (override) those two methods.
     // (otherwise the HashSet won't operate correctly).
 }
