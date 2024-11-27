@@ -53,7 +53,7 @@ public class MainApp {
 
         System.out.println("Words from the Book that are NOT in the dictionary:");
         for (String word : documentWords) {
-            if (!dictionaryWords.contains(word)) {   // check if dictionary contains the current word
+            if (!dictionaryWords.contains(word)) {   // if current word is not in the dictionary
                 System.out.print(word + ", ");
             }
         }
@@ -91,7 +91,7 @@ public class MainApp {
     // HashSet requires that hashCode() and equals() methods are implemented
     // for the type of object stored.  Above, words are stored as String types
     // so hashCode() and equals() methods must be implemented in the String
-    // class - which they are!
+    // class - which they are! (Look up the Java API String class)
     // If we use our own class (e.g. Student) as the Key type for HashSet, then
     // that class MUST implement the hashCode() and equals() methods appropriately.
     // Therefore, we must write (override) those two methods.
